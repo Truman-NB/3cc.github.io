@@ -4,26 +4,19 @@
   
   
   <entry>
-    <title>hello world</title>
-    <link href="/2024/01/12/hello-world-1/"/>
-    <url>/2024/01/12/hello-world-1/</url>
+    <title>Hello world</title>
+    <link href="/2024/01/12/Hello-world/"/>
+    <url>/2024/01/12/Hello-world/</url>
     
-    <content type="html"><![CDATA[<h1 id="这是我第一次创建博客"><a href="#这是我第一次创建博客" class="headerlink" title="这是我第一次创建博客"></a>这是我第一次创建博客</h1>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="/2024/01/12/hello-world/"/>
-    <url>/2024/01/12/hello-world/</url>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<h4 id="建博成功"><a href="#建博成功" class="headerlink" title="建博成功"></a>建博成功</h4><p>今天终于将建立一个博客的想法付诸实践，购买域名时发现还有 cc 后缀的域名，直接从 namesilo 上买下一年，无需实名。把域名通过 CNAME 定到 github pages 上废了半天劲，才发现 deploy from a branch 要选择 master 而不是 main（config 里填的是 master）。一开始不理解 hexo 和 github pages 为啥能联系到一起，在 DNS 解析和 hexo 同步本地内容至网页的过程中，逐渐明白通过 pages 访问自己的域名可以省去买服务器的钱。果然还是要行动起来，才能了解问题，解决问题。</p>]]></content>
     
     
+    
+    <tags>
+      
+      <tag>tech</tag>
+      
+    </tags>
     
   </entry>
   
