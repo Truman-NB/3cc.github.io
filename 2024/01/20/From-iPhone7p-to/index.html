@@ -24,7 +24,7 @@
 <meta property="og:description" content="前几天玩弄 7p（iOS 10.2.1）的时候，发现适配版本的 app 都不能登陆，轻度使用的话，对于微信、网易云音乐来说，不能登陆也就相当于不适配。在探索登陆的方法中，却意外发现有关 iOS 逆向的知识，遂做记录。以下探索都是在不越狱手机的情况下，对于这样一部老手机，总觉得越狱就让其变得不再完整。虽然直接选择越狱会省不少事… 但折腾成功的感觉也是挺舒服的。 登陆微信直接在网上查会发现大部分的教程">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-01-20T05:44:31.000Z">
-<meta property="article:modified_time" content="2024-01-20T12:57:36.666Z">
+<meta property="article:modified_time" content="2024-01-21T07:11:34.823Z">
 <meta property="article:author" content="3cc">
 <meta property="article:tag" content="tech">
 <meta name="twitter:card" content="summary_large_image">
@@ -208,7 +208,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.3k words
+          3.4k words
         
       </span>
     
@@ -219,7 +219,7 @@
         
         
         
-          28 mins
+          29 mins
         
       </span>
     
@@ -274,6 +274,8 @@
 <h4 id="砸壳"><a href="#砸壳" class="headerlink" title="砸壳"></a>砸壳</h4><p>在讲述砸壳这个话题前，我实话实说是历经艰险才发现还有这一个 obstacle 的。<br>重签名后我信心满满地安装，心想这下总 OK 了吧，也不过如此。可是通过 http 总是安装不下来，由于这个过程不可视，我也难以发现到底是签名没签好、版本设置不对还是其他什么问题。怎么可视化，也就是怎么能够调试呢？在<a target="_blank" rel="noopener" href="https://www.yangshebing.com/2018/01/06/iOS%E9%80%86%E5%90%91%E5%BF%85%E5%A4%87%E7%BB%9D%E6%8A%80%E4%B9%8Bipa%E9%87%8D%E7%AD%BE%E5%90%8D/">这篇博客</a>中，作者提到了一个叫 ios-deploy 命令行工具，我通过 homebrew 下载后，terminal 输入 <code>ios-deploy -d -b Payload/NetEaseMusic.app</code>，电脑就开始自动识别设备（USB 或者 WIFI）并安装。一开始结果显示 <code>The operation couldn’t be completed. Unable to launch bundleID because it has an invalid code signature, inadequate entitlements or its profile has not been explicitly trusted by the user.</code>，需要在设置里的设备管理信任证书。这就正常了，既然有证书，说明我的签名过程是没问题的。也说明 http 安装应该只适用于从 appstore 中下载的 ipa。OK，信任后再重新调试，又显示失败 process -1。啥意思嘞？我从 7p 上点开这个应用发现闪退。歪日，上网一查，原来从 appstore 下载的 ipa 都被 Apple 加上了保护壳，直接修改并重签名，安装后会出现闪退。也就是说，在这一切之前，我就需要先进行所谓的“砸壳”。其实签名的教程中许多也提到了，我没有注意到…<br>好歹算是发现问题了，那目标再一次明确，怎么砸壳。<br>搞笑的是砸壳需要一部越狱的手机，从越狱手机下载的 ipa 文件是破解了 Apple 加密的。那我的初衷就是不越狱，假如越狱的话还用得着这么折腾吗？！兜兜转转又回到原点，越狱 or not。所以说我这么折腾半天就为了登陆一个网易云实在是大材小用，一般砸壳就是为了逆分析 ipa，分析软件实现原理，更高级的那就是魔改 UI 、功能啥的，改个版本号属实是小 case 了。<br>但也不能前功尽弃吧，在淘宝上找到 5 块钱的砸一个，告诉他 3.1.1 后他先发给我一个 ipa，解压发现和我从 iTunes 下载的没啥区别，重签名安装后还是不行，他也知道不行，说是老壳子不好砸。后面他又发给我一个 ipa，我解压后发现里面已经有签名描述文件，不过已经过期 4 年了。还多了一个 MyiP14 文件，不知道是啥。但至少说明这个 ipa 不是从 appstore 下载的，他说是降级再砸壳，哥们也不懂。重签名后安装，“奇迹般”能够打开，并且！也能实现手机号正常登陆，非常 NICE！</p>
 <hr>
 <p>值得注意的是，这个 3.1.1 版本的网易云包内容比较简单，没有动态库，唯一的一个 plugins 文件夹我查到好像说是无法签名我就直接删掉了，也没啥影响。对于更复杂的情况，可能需要对 framework 额外签名，还可能去除时间锁等。<br><small>PS：其实不需要把 info.list 原本的 bundleID 改成个人开发者的 bundleID。</small><br>一番折腾下来，7p 可用性更高了。继了解过 apk 逆向后，对 ipa 逆向也有了全新的理解。</p>
+<hr>
+<p>今天又看到了一个免越狱安装未签名 ipa 的 app：trollstore 2。可惜只能安装在 iOS15，在 trollstore 中安装的 appdump 2 也只能砸壳安装好的 app。那 11p 导入老版本砸壳后更改版本号再重签名至 7p 上使用的“曲线救国”就行不通了，因为老版本是无法安装至高系统上的… 有点理解什么叫降级再砸了，降级相当于就是在低系统上越狱，用越狱的方法砸壳。</p>
 <h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><p>iPhone 7p (10.2.1)<br>iPhone 11p（15.6）<br>MacBook Pro M1（12.6）<br>Window 10</p>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
 <li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/fbc7d4c436aa">https://www.jianshu.com/p/fbc7d4c436aa</a></li>
