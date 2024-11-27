@@ -18,15 +18,15 @@
   
     <meta name="description" content="Interesting StonesA girl named Tomori likes to collect stones. There are so many types of stones in our world, that if we assign each type an integer number, it could be as large as $10^7$. One day To">
 <meta property="og:type" content="article">
-<meta property="og:title" content="task">
-<meta property="og:url" content="https://blog.hlei.cc/2024/11/26/OJ%20task/index.html">
+<meta property="og:title" content="OJ task">
+<meta property="og:url" content="https://blog.hlei.cc/2024/11/26/OJ-task/index.html">
 <meta property="og:site_name" content="Oppenheimer">
 <meta property="og:description" content="Interesting StonesA girl named Tomori likes to collect stones. There are so many types of stones in our world, that if we assign each type an integer number, it could be as large as $10^7$. One day To">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://oj.cs.tsinghua.edu.cn/staticdata/1899.dWEJWCaOGoTYsoZJ.pub/BVKcle10qLc1L06n.non-boring-example.png/non-boring-example.png">
 <meta property="og:image" content="https://oj.cs.tsinghua.edu.cn/staticdata/1899.dWEJWCaOGoTYsoZJ.pub/MrdpjulBPHfU2uE4.prev_next.png/prev_next.png">
 <meta property="article:published_time" content="2024-11-26T13:06:43.000Z">
-<meta property="article:modified_time" content="2024-11-27T07:20:02.387Z">
+<meta property="article:modified_time" content="2024-11-27T07:23:27.053Z">
 <meta property="article:author" content="3cc">
 <meta property="article:tag" content="algorithm">
 <meta name="twitter:card" content="summary_large_image">
@@ -34,7 +34,7 @@
   
   
   
-  <title>task - Oppenheimer</title>
+  <title>OJ task - Oppenheimer</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -188,7 +188,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="task"></span>
+            <span id="subtitle" data-typed-text="OJ task"></span>
           
         </div>
 
@@ -259,7 +259,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">task</h1>
+            <h1 id="seo-header">OJ task</h1>
             
               <p id="updated-time" class="note note-info" style="">
                 
@@ -352,8 +352,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>task</div>
-      <div><a href="https://blog.hlei.cc/2024/11/26/OJ%20task/" target="_blank" rel="nofollow noopener">https://blog.hlei.cc/2024/11/26/OJ%20task/</a></div>
+      <div>OJ task</div>
+      <div><a href="https://blog.hlei.cc/2024/11/26/OJ-task/" target="_blank" rel="nofollow noopener">https://blog.hlei.cc/2024/11/26/OJ-task/</a></div>
     </div>
     <div class="license-meta">
       
@@ -465,6 +465,12 @@
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -658,6 +664,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
