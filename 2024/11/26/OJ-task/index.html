@@ -25,8 +25,10 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://oj.cs.tsinghua.edu.cn/staticdata/1899.dWEJWCaOGoTYsoZJ.pub/BVKcle10qLc1L06n.non-boring-example.png/non-boring-example.png">
 <meta property="og:image" content="https://oj.cs.tsinghua.edu.cn/staticdata/1899.dWEJWCaOGoTYsoZJ.pub/MrdpjulBPHfU2uE4.prev_next.png/prev_next.png">
+<meta property="og:image" content="https://oj.cs.tsinghua.edu.cn/staticdata/1900.VsGoG2lLzGVvLqA3.pub/c9yn202F8TdtjxEn.examples.png/examples.png">
+<meta property="og:image" content="https://oj.cs.tsinghua.edu.cn/staticdata/1900.VsGoG2lLzGVvLqA3.pub/l53y2aqP5H7Q2qiC.sample.png/sample.png">
 <meta property="article:published_time" content="2024-11-26T13:06:43.000Z">
-<meta property="article:modified_time" content="2024-11-27T07:23:27.053Z">
+<meta property="article:modified_time" content="2024-12-05T13:52:24.425Z">
 <meta property="article:author" content="3cc">
 <meta property="article:tag" content="algorithm">
 <meta name="twitter:card" content="summary_large_image">
@@ -211,7 +213,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          248 words
+          393 words
         
       </span>
     
@@ -222,7 +224,7 @@
         
         
         
-          3 mins
+          4 mins
         
       </span>
     
@@ -264,7 +266,7 @@
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    Last updated on November 27, 2024 pm
+                    Last updated on December 5, 2024 pm
                   
                 
               </p>
@@ -328,6 +330,46 @@
 <p>  Python code written in adherence to good programming practices should pass all test cases.</p>
 </li>
 </ul>
+<h1 id="Minimum-edge-sum"><a href="#Minimum-edge-sum" class="headerlink" title="Minimum edge sum"></a>Minimum edge sum</h1><p>You are given two separate rows of vertices. Let’s label the vertices, always from left to right, as $𝐴_1$ … $𝐴_𝑛$ ​ for the first row and $𝐵_1$ … $𝐵_𝑚$ ​ for the second row. Every vertex is assigned with an integer value, $𝑎_𝑖$ for $𝐴_𝑖$ and $𝑏_𝑗$ ​ for $𝐵_𝑗$ ​ (1≤𝑖≤𝑛 and 1≤𝑗≤𝑚, same for the following).</p>
+<p>In this problem you are asked to draw edges to construct a bipartite graph from the given two rows of vertices. By using the term <strong>bipartite graph</strong>, we mean that every edge you draw should connect a vertex $𝐴_𝑖$ in the first row to a vertex $𝐵_𝑗$ in the second row, and we label this edge as 𝐸<sub>𝑖𝑗</sub>, whose weight is defined as 𝑒<sub>𝑖𝑗</sub>&#x3D;∣$𝑎_𝑖$ − $𝑏_𝑗$∣ (the absolute difference between the two vertices’ values).</p>
+<p>While drawing edges, you should follow these <strong>rules</strong>:</p>
+<ol>
+<li>The graph should be bipartite, as stated above;</li>
+<li>There should be an edge connecting $𝐴_1$ ​ and $𝐵_1$ ​, i.e. 𝐸<sub>11</sub>​ exists;</li>
+<li>There should be an edge connecting $𝐴_𝑛$ ​ and $𝐵_𝑚$, i.e. 𝐸<sub>𝑛𝑚</sub>​ exists;</li>
+<li>Every vertex should be connected to at least one other vertex (i.e. no “isolated vertices”);</li>
+<li>There can be at most one edge 𝐸<sub>𝑖𝑗</sub> between any vertex pair (𝐴𝑖,𝐵𝑗) (i.e. no “multiple edges”);</li>
+<li>Edges should not cross each other. The following image shows examples of a valid and an invalid graph, with the bold red edges crossing each other.</li>
+</ol>
+<p><img src="https://oj.cs.tsinghua.edu.cn/staticdata/1900.VsGoG2lLzGVvLqA3.pub/c9yn202F8TdtjxEn.examples.png/examples.png" srcset="/img/loading.gif" lazyload></p>
+<p>To be more specific, if you draw an edge 𝐸<sub>𝑖𝑗</sub>, then you cannot draw any edge 𝐸<sub>𝑝𝑞</sub> where (𝑝&lt;𝑖 AND 𝑞&gt;𝑗) OR (𝑝&gt;𝑖 AND 𝑞&lt;𝑗), because the two edges will cross each other.</p>
+<p>The <strong>edge sum</strong> of a graph is defined as the sum of all edges’ weights. Your goal is to find a bipartite graph with the <strong>minimum edge sum</strong>, while following the rules above.</p>
+<h2 id="Input-1"><a href="#Input-1" class="headerlink" title="Input"></a>Input</h2><p>The first line of the input contains two integers 𝑛 and 𝑚, separated with a single space, the number of vertices in the first and second row, respectively.</p>
+<p>The second line contains 𝑛 integers $𝑎_1$ … $𝑎_𝑛$ ​, separated with single spaces, the values of the vertices in the first row.</p>
+<p>The third line contains 𝑚 integers $𝑏_1$ … $𝑏_𝑚$ ​, separated with single spaces, the values of the vertices in the second row.</p>
+<h2 id="Output-1"><a href="#Output-1" class="headerlink" title="Output"></a>Output</h2><p>An integer, the minimum edge sum of a valid bipartite graph. Trailing whitespace or line break will be ignored.</p>
+<h2 id="Sample-Input-1"><a href="#Sample-Input-1" class="headerlink" title="Sample Input"></a>Sample Input</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs none">4 5<br>1 5 4 6<br>6 2 5 7 7<br></code></pre></td></tr></table></figure>
+
+<h2 id="Sample-Output-1"><a href="#Sample-Output-1" class="headerlink" title="Sample Output"></a>Sample Output</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs none">9<br></code></pre></td></tr></table></figure>
+
+<h2 id="Sample-Explanation"><a href="#Sample-Explanation" class="headerlink" title="Sample Explanation"></a>Sample Explanation</h2><p><img src="https://oj.cs.tsinghua.edu.cn/staticdata/1900.VsGoG2lLzGVvLqA3.pub/l53y2aqP5H7Q2qiC.sample.png/sample.png" srcset="/img/loading.gif" lazyload></p>
+<p>5+1+0+1+1+1&#x3D;9</p>
+<h2 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a>Constraints</h2><ul>
+<li>1≤𝑛,𝑚≤1000</li>
+<li>Specially for test cases 1~6: 1≤𝑛,𝑚≤10</li>
+<li>All 𝑎𝑖,𝑏𝑗 are within the value range of a 16-bit signed integer, i.e. −32768≤$𝑎_𝑖$, $𝑏_𝑗$≤32767</li>
+</ul>
+<h2 id="Limits-1"><a href="#Limits-1" class="headerlink" title="Limits"></a>Limits</h2><ul>
+<li>Time limit: 1.5 s</li>
+<li>Memory limit: 512 MB</li>
+</ul>
+<h2 id="Hints-1"><a href="#Hints-1" class="headerlink" title="Hints"></a>Hints</h2><ol>
+<li>This is a dynamic programming problem. No requisite knowledge of graph algorithms is needed.</li>
+<li>The first step of solving a DP problem is often to define the state function courageously. But do make a clear definition without ambiguity.</li>
+<li>Think how the rules result in optimal substructure property along with a simple yet elegant DP recurrence (state transition equation).</li>
+<li>Draw on a paper: 1) the bipartite graph and 2) visualization of the DP state transition, to help thinking.</li>
+<li>Test cases 1~6 have small 𝑛 and 𝑚, allowing for a brute-force search&#x2F;enumeration as your last resort.</li>
+</ol>
 
                 
               </div>
